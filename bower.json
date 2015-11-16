@@ -1,0 +1,24 @@
+{
+  "name": "FamilySearch Secrets",
+  "authors": [
+    "Nathan Huff <huffn@ldschurch.org>"
+  ],
+  "description": "A sample application that showcases Polymer and Firebase.",
+  "main": "",
+  "moduleType": [],
+  "keywords": [
+    "polymer",
+    "firebase",
+    "FamilySearch"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
