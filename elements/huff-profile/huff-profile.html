@@ -1,15 +1,44 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
 <dom-module id="huff-profile">
   <template>
     <style>
+      :host {
+        display: block;
+        text-align: center;
+      }
+      img {
+        border-radius: 50%;
+        margin: 5px auto;
+        display: block;
+      }
+      h1 {
+        text-transform: capitalize;
+        margin: 0;
+      }
+      h2 {
+        margin: 0;
+      }
     </style>
+    <iron-ajax auto url="http://api.randomuser.me/" handle-as="json" on-response="transformProfile"></iron-ajax>
+    <img src="{{profile.user.picture.medium}}" alt="{{profile.user.username}}'s profile picture"/>
+    <h1>{{profile.user.name.first}} {{profile.user.name.last}}</h1>
+    <h2>~{{profile.user.username}}</h2>
   </template>
   <script>
     (function () {
       'use strict';
       Polymer({
         is: 'huff-profile',
-        properties: {}
+        properties: {
+          profile: {
+            type: Object,
+            notify: true,
+          }
+        }, 
+        transformProfile: function(resp){
+          this.profile = resp.detail.xhr.response.results[0];
+        }
       });
     })();
   </script>
